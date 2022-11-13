@@ -50,7 +50,7 @@
 
 * Переходим в папку: `cd docker`
 
-* Запускаем сборку: `docker-compose up`
+* Запускаем сборку: `docker-compose up -d`
 
 * Проверяем: `curl localhost:8080/index.php`
 
