@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  nginx:
+    image: krdr/nginx
+    ports:
+      - "8080:80"
+    volumes:
+      - ./docker/nginx/custom.conf:/etc/nginx/http.d/default.conf
+      - ./docker/php-fpm/index.php:/var/www/index.php
+    networks:
+      - custom-net
+
+  php-fpm:
+    image: krdr/php-fpm
+    volumes:
+      - ./docker/php-fpm/index.php:/var/www/index.php
+    networks:
+      - custom-net
+
+networks:
+  custom-net:
+    driver: bridge
